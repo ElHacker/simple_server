@@ -2,14 +2,14 @@ extends layout
 
 block content
   #draggable-blocks
-    .draggable.ui-widget-content.code-block
-      h3.code-block-title Drag me around #1
+    #for-block.draggable.ui-widget-content.code-block
+      h3.code-block-title For block
       .droppable
-    .draggable.ui-widget-content.code-block
-      h3.code-block-title Drag me around #2
+    #if-block.draggable.ui-widget-content.code-block
+      h3.code-block-title If block
       .droppable
-    .draggable.ui-widget-content.code-block
-      h3.code-block-title Drag me around #3
+    #function-block.draggable.ui-widget-content.code-block
+      h3.code-block-title Function block
       .droppable
   #droppable-space
     h2 Your Code

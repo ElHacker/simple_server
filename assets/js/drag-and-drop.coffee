@@ -34,9 +34,7 @@ $ ->
         height: "auto"
       $dragged.appendTo $droppable
     over: onOver
-    out: (event, ui) ->
-      $droppable = $(this)
-      $droppable.removeClass "ui-state-highlight"
+    out: onOut
 
   $droppableSpace.droppable
     drop: onDrop
