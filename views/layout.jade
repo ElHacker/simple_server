@@ -6,7 +6,10 @@ html
     link(rel='stylesheet', href='http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css')
     script(src='http://code.jquery.com/jquery-1.9.1.js')
     script(src='http://code.jquery.com/ui/1.10.2/jquery-ui.js')
+    script(src="/javascripts/underscore-min.js")
+    script(src="/javascripts/backbone-min.js")
     != js('drag-and-drop')
-    != js('Block')
+    != js('models/Block')
+    != js('views/Blocks/show')
   body
     block content
