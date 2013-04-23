@@ -5,7 +5,11 @@ Block = Backbone.Model.extend(
   }
 
   initialize: () ->
-    new BlockView(el: $("##{@.get("name")}"), model:@)
+    @.createView()
+
+  # initializes the corresponding view after the model
+  createView: () ->
+    bv = new BlockView(el: $("##{@.get("name")}"), model:@)
 
   add_child: (child_block) ->
     children = @.get("children")

@@ -1,4 +1,5 @@
 BlockView = Backbone.View.extend(
+
   initialize: () ->
     @render()
 
@@ -15,6 +16,35 @@ BlockView = Backbone.View.extend(
       revert: "invalid"
       helper: "clone"
       containment: "document"
+    # Load the jquery ui droppable widget
+    this.$(".droppable").droppable
+      greedy: true
+      tolerance: 'pointer'
+
+  events:
+    "drop .droppable": "onDrop"
+    "dropover .droppable": "onOver"
+    "dropout .droppable": "onOut"
+
+  onDrop: (event, ui) ->
+    console.log "DROP"
+    $droppable = $(this)
+    $dragged = $(ui.draggable)
+    $droppable.removeClass "ui-state-highlight"
+    $droppable.parentsUntil("#droppable-space").css height: "auto"
+    $droppable.css
+      width: "auto"
+      "min-height": "117px"
+      height: "auto"
+    $dragged.appendTo $droppable
+
+  onOver : (event, ui) ->
+    console.log "OVER"
+    $(this).addClass "ui-state-highlight"
+
+  onOut : (event, ui) ->
+    console.log "OUT"
+    $(this).removeClass "ui-state-highlight"
 )
 
 window.BlockView = BlockView
