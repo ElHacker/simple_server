@@ -20,14 +20,11 @@ BlockView = Backbone.View.extend(
     this.$(".droppable").droppable
       greedy: true
       tolerance: 'pointer'
-
-  events:
-    "drop .droppable": "onDrop"
-    "dropover .droppable": "onOver"
-    "dropout .droppable": "onOut"
+      drop: @onDrop
+      over: @onOver
+      out: @onOut
 
   onDrop: (event, ui) ->
-    console.log "DROP"
     $droppable = $(this)
     $dragged = $(ui.draggable)
     $droppable.removeClass "ui-state-highlight"
@@ -39,11 +36,9 @@ BlockView = Backbone.View.extend(
     $dragged.appendTo $droppable
 
   onOver : (event, ui) ->
-    console.log "OVER"
     $(this).addClass "ui-state-highlight"
 
   onOut : (event, ui) ->
-    console.log "OUT"
     $(this).removeClass "ui-state-highlight"
 )
 
