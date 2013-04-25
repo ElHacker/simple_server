@@ -19,3 +19,9 @@ $ ->
     drop: onDrop
     over: onOver
     out: onOut
+
+  # Start the basic blocks
+  for_block = new Block({name:"for-block"})
+  if_block = new Block({name:"if-block"})
+  else_block = new Block({name:"else-block"})
+

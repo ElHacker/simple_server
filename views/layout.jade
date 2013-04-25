@@ -4,10 +4,18 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css')
+    link(rel='stylesheet', href='/stylesheets/foundation.min.css')
     script(src='http://code.jquery.com/jquery-1.9.1.js')
     script(src='http://code.jquery.com/ui/1.10.2/jquery-ui.js')
     script(src="/javascripts/underscore-min.js")
     script(src="/javascripts/backbone-min.js")
+    script(src="/javascripts/vendor/custom.modernizr.js")
+    script(src="/javascripts/vendor/zepto.js")
+    script(src="/javascripts/foundation/foundation.js")
+    script(src="/javascripts/foundation/foundation.dropdown.js")
+    script
+      // Initialize all plugins
+      $(document).foundation();
     != js('drag-and-drop')
     != js('views/Blocks/show')
     != js('models/Block')

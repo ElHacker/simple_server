@@ -10,7 +10,7 @@
   line-height: 18px;
   font-size: 14px;
   background-color: #f7f7f7;
-  border-bottom: 1px solid #ebebeb;
+  border-bottom: 1px solid #e9e9e9;
   -moz-border-radius: 10px 10px 0 0;
   -webkit-border-radius: 10px 10px 0 0;
   border-radius: 10px 10px 0 0;
@@ -23,8 +23,47 @@
 }
 
 #droppable-space, #draggable-blocks {
-  width: 400px;
   height: 600px;
+}
+
+#input, #output {
+  height: 300px;
+}
+
+div.widget.columns, div.widget.row {
+  padding: 0px;
   border: 1px solid #000000;
-  float:left;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+
+.widget-title{
+  margin: 0em;
+  padding: 8px 14px;
+  line-height: 35px;
+  background-color: #2ba6cb;
+  border-bottom: 1px solid #e9e9e9;
+  -moz-border-radius: 10px 10px 0 0;
+  -webkit-border-radius: 10px 10px 0 0;
+  border-radius: 10px 10px 0 0;
+}
+
+button#run {
+  float: right;
+}
+
+.clue {
+  margin-left: auto;
+  margin-right: auto;
+  width: 10em;
+  text-align: center;
+}
+
+button.block_actions {
+  float: right;
+}
+
+ul#actions_list {
+  max-width: 100px;
 }
