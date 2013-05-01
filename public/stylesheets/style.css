@@ -18,12 +18,15 @@
 
 .droppable {
   padding-left: 10px;
-  height: 117px;
   width: auto;
 }
 
 #droppable-space, #draggable-blocks {
   height: 600px;
+}
+
+#droppable-space .droppable {
+  height: 117px;
 }
 
 #input, #output {

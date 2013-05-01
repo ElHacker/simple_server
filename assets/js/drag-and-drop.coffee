@@ -33,8 +33,48 @@ $ ->
     over: onOver
     out: onOut
 
+
+
+  generateCode = (block) ->
+    children_code = ""
+    if block.get("children")?
+      for key, child_block of block.get("children")
+        children_code += generateCode(child_block)
+    generated_code = block.get("code")(children_code, block.get("params"))
+    return generated_code
+
+
+  $("#run").on('click', (event) ->
+    final_code = ""
+    for key, child_block of root_block.children
+      final_code += generateCode(child_block)
+    console.log final_code
+  )
+
   # Start the basic blocks
-  for_block = new Block({name:"for"})
-  if_block = new Block({name:"if"})
-  else_block = new Block({name:"else"})
+  for_block = new Block( 
+     name:"for"
+     code: (child_block, params) ->
+        return "for(#{params}) { #{child_block} }"
+  )
+  if_block = new Block( 
+    name:"if"
+    code: (child_block, params) ->
+      return "if (#{params}) { #{child_block} }"
+  )
+  else_block = new Block( 
+    name:"else"
+    code: (child_block, params="") ->
+      return "else { #{child_block}  }"
+  )
+  main_block = new Block( 
+    name:"main"
+    code: (child_block, params="") ->
+      return "main(#{params}) { #{child_block} }"
+  )
+  function_block = new Block(
+    name:"function"
+    code: (child_block, params="") ->
+      return "function(#{params}) { #{child_block}  }"
+  )
 
