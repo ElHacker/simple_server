@@ -11,6 +11,7 @@ BlockView = Backbone.View.extend(
     # Load the compiled HTML into the Backbone "el"
     this.$el.html( template  )
     # Bind a focus event on text input
+    # TODO: change it to be bound by the backbone view's events
     bound_model = @.model
     this.$(".code-block-params").on('blur', (event) ->
       params = $(@).val()

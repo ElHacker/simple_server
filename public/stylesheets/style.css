@@ -82,3 +82,12 @@ button.block_actions {
 ul#actions_list {
   max-width: 100px;
 }
+
+#input textarea {
+  width: 100%;
+  height: 80%;
+  font-family: 'Noto Sans' 'sans-serif';
+  border: none;
+  outline: none;
+  overflow: auto;
+}
