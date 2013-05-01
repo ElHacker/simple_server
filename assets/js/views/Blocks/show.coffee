@@ -10,6 +10,12 @@ BlockView = Backbone.View.extend(
     template = _.template( $("#block_template").html(), variables )
     # Load the compiled HTML into the Backbone "el"
     this.$el.html( template  )
+    # Bind a focus event on text input
+    bound_model = @.model
+    this.$(".code-block-params").on('blur', (event) ->
+      params = $(@).val()
+      bound_model.set("params", params )
+    )
     # Bind a reference to the view
     this.$(".draggable").data("backbone-view", this)
     # Load the jquery ui draggable widget

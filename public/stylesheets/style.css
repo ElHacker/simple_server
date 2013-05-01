@@ -16,6 +16,17 @@
   border-radius: 10px 10px 0 0;
 }
 
+.code-block .code-block-params {
+  width: 170px;
+  display: inline-block;
+  margin-left: 15px;
+}
+
+.code-block-title div {
+  display:inline-block;
+  height: 20px;
+}
+
 .droppable {
   padding-left: 10px;
   width: auto;
@@ -65,6 +76,7 @@ button#run {
 
 button.block_actions {
   float: right;
+  right: 0px:
 }
 
 ul#actions_list {

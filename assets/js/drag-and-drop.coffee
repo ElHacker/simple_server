@@ -77,4 +77,13 @@ $ ->
     code: (child_block, params="") ->
       return "function(#{params}) { #{child_block}  }"
   )
+  statement_block = new Block(
+    name:"statement"
+    code: (child_block, params) ->
+      return "#{params}"
+  )
+
+  # Remove statement droppable block
+  # TODO: REFACTOR!!!!!
+  $("#statement .droppable").remove()
 

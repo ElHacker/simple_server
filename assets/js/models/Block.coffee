@@ -1,6 +1,7 @@
 Block = Backbone.Model.extend(
   defaults: {
     "name" : ""
+    "params" : ""
     "code": () ->
       return ""
   }
