@@ -47,6 +47,12 @@ $ ->
     for key, child_block of root_block.children
       final_code += generateCode(child_block)
     console.log final_code
+    # Send generated code to server to be compiled and executed
+    $.post('/run', {code:final_code}, (data, textStatus, jqXHR) ->
+      $("#output-message").html(data.code)
+    ).fail( (error) ->
+      $("#output-message").html(error)
+    )
   )
 
   # Start the basic blocks

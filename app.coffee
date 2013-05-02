@@ -19,5 +19,6 @@ app.configure "development", ->
   app.use express.errorHandler()
 
 app.get "/", routes.index
+app.post "/run", routes.run
 http.createServer(app).listen app.get("port"), ->
   console.log "Express server listening on port " + app.get("port")
