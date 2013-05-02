@@ -49,7 +49,7 @@ $ ->
     console.log final_code
     # Send generated code to server to be compiled and executed
     $.post('/run', {code:final_code}, (data, textStatus, jqXHR) ->
-      $("#output-message").html(data.code)
+      $("#output-message").html(JSON.stringify(data))
     ).fail( (error) ->
       $("#output-message").html(error)
     )
