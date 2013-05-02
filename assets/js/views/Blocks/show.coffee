@@ -25,6 +25,15 @@ BlockView = Backbone.View.extend(
       revert: "invalid"
       helper: "clone"
       containment: "document"
+      stop: () ->
+        originalBlock = $(@).data("backbone-view").model
+        cloneBlock = new Block(
+          name: originalBlock.get("name")
+          code: originalBlock.get("code") 
+        )
+        # Remove statement droppable block
+        # TODO: REFACTOR!!!!!
+        $("#statement .droppable").remove()
     # Load the jquery ui droppable widget
     this.$(".droppable").droppable
       greedy: true
@@ -47,7 +56,6 @@ BlockView = Backbone.View.extend(
     #$dragged.appendTo $droppable
     parentBlock.add_child childBlock
     $droppable.append $dragged
-    console.log JSON.stringify(parentBlock, null, 2)
 
   onOver : (event, ui) ->
     $(this).addClass "ui-state-highlight"

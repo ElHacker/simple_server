@@ -12,8 +12,6 @@ $ ->
     $dragged.appendTo($droppable).animate width: "auto"
     childBlock = $dragged.data("backbone-view").model
     root_block.children[childBlock.cid] = childBlock
-    console.log "ROOT:"
-    console.log JSON.stringify(root_block, null, 2)
 
   onOver = (event, ui) ->
     $(this).addClass "ui-state-highlight"
@@ -75,7 +73,7 @@ $ ->
   function_block = new Block(
     name:"function"
     code: (child_block, params="") ->
-      return "function(#{params}) { #{child_block}  }"
+      return "function #{params} { #{child_block}  }"
   )
   statement_block = new Block(
     name:"statement"
