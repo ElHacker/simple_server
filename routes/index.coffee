@@ -1,5 +1,5 @@
 spawn = require('child_process').spawn
-vm = require('../libs/simple/src/vm.js')
+vm = require('../libs/simple/src/vm.coffee')
 
 module.exports =
   index : (req, res) ->
@@ -31,6 +31,7 @@ module.exports =
         res.send(200, stderr)
       else
         results = vm.node(stdout)
+        console.log vm
         res.send(200, {results})
     )
 
