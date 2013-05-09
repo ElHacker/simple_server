@@ -43,12 +43,14 @@ $ ->
 
 
   $("#run").on('click', (event) ->
-    final_code = ""
+    code = ""
+    input = $("#user-input").val()
     for key, child_block of root_block.children
-      final_code += generateCode(child_block)
-    console.log final_code
+      code += generateCode(child_block)
+    console.log code
+    console.log input
     # Send generated code to server to be compiled and executed
-    $.post('/run', {code:final_code}, (data, textStatus, jqXHR) ->
+    $.post('/run', {code, input}, (data, textStatus, jqXHR) ->
       $("#output-message").html(JSON.stringify(data))
     ).fail( (error) ->
       $("#output-message").html(error)

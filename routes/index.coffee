@@ -8,6 +8,7 @@ module.exports =
 
   run: (req, res) ->
     code = req.body.code
+    input = req.body.input
     console.log code
     stdout = ""
     stderr = ""
@@ -30,7 +31,7 @@ module.exports =
       if stderr != ""
         res.send(200, stderr)
       else
-        results = vm.node(stdout)
+        results = vm.node(stdout, input)
         console.log vm
         res.send(200, {results})
     )
